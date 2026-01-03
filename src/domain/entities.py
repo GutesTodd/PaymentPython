@@ -43,7 +43,6 @@ class User:
     is_banned: bool = False
 
     def extend_subscription(self, current_sub: Optional[Subscription], plan: SubscriptionPlan) -> Subscription:
-        """Бизнес-логика продления подписки."""
         if self.is_banned:
             raise UserBannedException(f"User {self.id} is banned")
 
