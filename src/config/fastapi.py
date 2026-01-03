@@ -1,6 +1,6 @@
 from pydantic_settings import BaseSettings
 
-from infrastructure.config.security import SecurityConfig
+from config.security import SecurityConfig
 
 from .env import env
 

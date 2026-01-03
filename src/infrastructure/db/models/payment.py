@@ -20,9 +20,8 @@ class PaymentORM(BaseORMModel):
     external_id: Mapped[int] = mapped_column(BigInteger, unique=True, index=True)
     
     status: Mapped[PaymentStatus] = mapped_column(
-        SQLEnum(PaymentStatus), 
-        default=PaymentStatus.PENDING,
-        native_enum=False
+        SQLEnum(PaymentStatus, native_enum=False), 
+        default=PaymentStatus.PENDING
     )
     
     pay_url: Mapped[str | None]

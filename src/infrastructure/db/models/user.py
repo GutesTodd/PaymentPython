@@ -16,5 +16,5 @@ class UserORM(BaseORMModel):
     is_banned: Mapped[bool] = mapped_column(default=False, server_default="false")
     created_at: Mapped[datetime] = mapped_column(default=datetime.utcnow)
 
-    subscription: Mapped["SubscriptionORM" | None] = relationship(back_populates="user", cascade="all, delete-orphan")
+    subscription: Mapped["SubscriptionORM | None"] = relationship(back_populates="user", cascade="all, delete-orphan")
     payments: Mapped[list["PaymentORM"]] = relationship(back_populates="user")

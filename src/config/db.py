@@ -6,9 +6,9 @@ from .env import env
 class DatabaseSettings(BaseSettings):
     DB_USER: str = env.str('DB_USER', 'postgres')
     DB_PASSWORD: str = env.str('DB_PASSWORD', 'postgres')
-    DB_HOST: str = env.str('DB_HOST', 'postgres')
+    DB_HOST: str = env.str('DB_HOST', '127.0.0.1')
     DB_PORT: int = env.int('DB_PORT', 5432)
-    DB_NAME: str = env.str('DB_NAME', 'postgres')
+    DB_NAME: str = env.str('DB_NAME', 'payment_backend')
 
     @property
     def async_url(self) -> str:
