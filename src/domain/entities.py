@@ -59,6 +59,13 @@ class User:
             plan_id=plan.id,
             expires_at=new_expiry
         )
+        
+@dataclass
+class RefreshToken:
+    id: Optional[UUID] = None
+    user_id: int
+    refresh_token: str
+    expired_date: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
 
 @dataclass
 class Payment:
