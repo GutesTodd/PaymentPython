@@ -62,7 +62,6 @@ class UserService:
         return await self._create_session(user)
 
     async def create_user(self, **user_data: Any) -> User:
-        """Принимает именованные аргументы, хеширует пароль и создает Entity."""
         if 'password' in user_data:
             password_raw = user_data.pop('password')
             user_data['hashed_password'] = get_password_hash(password_raw)
